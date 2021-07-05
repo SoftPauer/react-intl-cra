@@ -2,7 +2,7 @@
 const fs = require('fs');
 const R = require('ramda');
 const glob = require('glob');
-const babel = require('babel-core');
+const babel = require('@babel/core');
 
 process.env.NODE_ENV = 'production'; // For babel.transform
 
