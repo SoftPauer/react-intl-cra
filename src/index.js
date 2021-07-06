@@ -16,9 +16,9 @@ function extract(
   const filesAndContents = R.zip(srcPaths, contents);
   const reqBabelPlugins = babelPlugins.map((b) => require.resolve(b));
   const messages = filesAndContents
-    .map((filesAndContent) => {
-      const file = filesAndContent[0];
-      const content = filesAndContent[1];
+    .map((fileAndContent) => {
+      const file = fileAndContent[0];
+      const content = fileAndContent[1];
       return babel.transform(content, {
         filename: file,
         presets: [
