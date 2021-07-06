@@ -1,6 +1,6 @@
 {
   "name": "react-intl-cra",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Extract messages of `Creact React App` from the command line",
   "repository": "https://github.com/evenchange4/react-intl-cra",
   "author": "Michael Hsu <evenchange4@gmail.com>",
@@ -29,7 +29,7 @@
   "dependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-react": "^7.14.5",
-    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
     "babel-plugin-formatjs": "^10.3.1",
     "chalk": "^4.1.1",
     "glob": "^7.1.7",
@@ -38,7 +38,6 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
-    "@babel/preset-typescript": "^7.14.5",
     "codecov": "^3.8.2",
     "eslint": "^7.30.0",
     "eslint-config-airbnb-base": "^14.2.1",
