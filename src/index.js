@@ -13,20 +13,24 @@ function extract(
   const srcPaths = glob.sync(pattern, { absolute: true });
   const relativeSrcPaths = glob.sync(pattern);
   const contents = srcPaths.map((p) => fs.readFileSync(p, 'utf-8'));
+  const filesAndContents = R.zip(srcPaths, contents);
   const reqBabelPlugins = babelPlugins.map((b) =>
     require.resolve(`babel-plugin-${b}`)
   );
-  const messages = contents
-    .map((content) =>
+  const messages = filesAndContents
+    .map((filesAndContent) => {
+      const file = filesAndContent[0];
+      const content = filesAndContent[1];
       babel.transform(content, {
+        filename: file,
         presets: [
           require.resolve('@babel/preset-react'),
-          require.resolve('@babel/preset-env'),
+          require.resolve('@babel/preset-typescript'),
         ],
         plugins: [require.resolve('babel-plugin-formatjs'), ...reqBabelPlugins],
         babelrc: false,
-      })
-    )
+      });
+    })
     .map(R.path(['metadata', 'react-intl', 'messages']));
 
   const result = R.zipWith(

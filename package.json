@@ -4,6 +4,9 @@
   "description": "Extract messages of `Creact React App` from the command line",
   "repository": "https://github.com/evenchange4/react-intl-cra",
   "author": "Michael Hsu <evenchange4@gmail.com>",
+  "contributors": [
+    "Dan Stokoe <dans@softpauer.com>"
+  ],
   "license": "MIT",
   "files": [
     "src",
@@ -35,6 +38,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
     "codecov": "^3.8.2",
     "eslint": "^7.30.0",
     "eslint-config-airbnb-base": "^14.2.1",
