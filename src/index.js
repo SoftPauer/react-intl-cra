@@ -19,7 +19,10 @@ function extract(
   const messages = contents
     .map((content) =>
       babel.transform(content, {
-        presets: [require.resolve('@babel/preset-react')],
+        presets: [
+          require.resolve('@babel/preset-react'),
+          require.resolve('@babel/preset-env'),
+        ],
         plugins: [require.resolve('babel-plugin-formatjs'), ...reqBabelPlugins],
         babelrc: false,
       })
