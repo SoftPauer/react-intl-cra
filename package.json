@@ -97,10 +97,5 @@
     "rules": {
       "prettier/prettier": "error"
     }
-  },
-  "babel": {
-    "presets": [
-      "babel-preset-react-app"
-    ]
   }
 }

@@ -12,18 +12,15 @@ function extract(
 ) /* : string */ {
   const srcPaths = glob.sync(pattern, { absolute: true });
   const relativeSrcPaths = glob.sync(pattern);
-  const contents = srcPaths.map(p => fs.readFileSync(p, 'utf-8'));
-  const reqBabelPlugins = babelPlugins.map(b =>
+  const contents = srcPaths.map((p) => fs.readFileSync(p, 'utf-8'));
+  const reqBabelPlugins = babelPlugins.map((b) =>
     require.resolve(`babel-plugin-${b}`)
   );
   const messages = contents
-    .map(content =>
+    .map((content) =>
       babel.transform(content, {
-        presets: [require.resolve('babel-preset-react-app')],
-        plugins: [
-          require.resolve('babel-plugin-react-intl'),
-          ...reqBabelPlugins,
-        ],
+        presets: [require.resolve('@babel/preset-react')],
+        plugins: [require.resolve('babel-plugin-formatjs'), ...reqBabelPlugins],
         babelrc: false,
       })
     )
